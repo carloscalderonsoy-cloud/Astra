@@ -68,7 +68,7 @@ function Nav() {
           {/* Logo */}
           <Link to="/" data-testid="nav-logo" className="flex items-center gap-2">
             <img
-              src="https://customer-assets.emergentagent.com/job_astra-sanctuary/artifacts/d94t7ih1_WhatsApp%20Image%202026-04-14%20at%2010.32.46%20AM.jpeg"
+              src="/logo.jpeg"
               alt="Astra Logo"
               className="h-[72px] w-auto"
               style={{ mixBlendMode: 'multiply' }}
@@ -119,7 +119,7 @@ function Nav() {
           <div className="flex items-center justify-between px-5 h-20 border-b border-arena3/40 shrink-0">
             <Link to="/" data-testid="nav-mobile-logo" onClick={() => setOpen(false)}>
               <img
-                src="https://customer-assets.emergentagent.com/job_astra-sanctuary/artifacts/d94t7ih1_WhatsApp%20Image%202026-04-14%20at%2010.32.46%20AM.jpeg"
+                src="/logo.jpeg"
                 alt="Astra Logo"
                 className="h-[48px] w-auto"
                 style={{ mixBlendMode: 'multiply' }}

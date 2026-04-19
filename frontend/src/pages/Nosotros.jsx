@@ -58,7 +58,7 @@ function Story() {
         <div className="relative">
           <div className="aspect-[4/3] bg-arena2 overflow-hidden">
             <img
-              src="https://customer-assets.emergentagent.com/job_astra-sanctuary/artifacts/lq9yfqpp_WhatsApp%20Image%202026-04-13%20at%208.25.53%20PM%20%281%29.jpeg"
+              src="/jardin.jpeg"
               alt="Jardín de Astra Clínica"
               loading="lazy"
               className="w-full h-full object-cover object-[center_30%]"
