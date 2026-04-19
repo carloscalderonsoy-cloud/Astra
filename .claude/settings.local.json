@@ -14,7 +14,8 @@
       "Bash(git push *)",
       "Bash(rm frontend/public/index.html)",
       "Bash(rm frontend/craco.config.js)",
-      "Bash(rm -rf frontend/plugins)"
+      "Bash(rm -rf frontend/plugins)",
+      "Bash(git fetch *)"
     ]
   }
 }
