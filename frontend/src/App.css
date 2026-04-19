@@ -1,0 +1,143 @@
+/* Astra Clínica — Custom Styles */
+
+/* Dot pattern overlay */
+.dot-pattern {
+  background-image: radial-gradient(circle, var(--dim) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.08;
+}
+
+/* Hero crossfade transitions */
+.hero-slide {
+  transition: opacity 1.2s ease-in-out;
+}
+
+/* Page transition */
+.page-enter {
+  animation: pageIn 0.4s ease-out forwards;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll snap for testimonials */
+.testimonial-scroll {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.testimonial-scroll::-webkit-scrollbar {
+  display: none;
+}
+.testimonial-card {
+  scroll-snap-align: center;
+}
+
+/* Gold line separator */
+.gold-line {
+  width: 48px;
+  height: 1px;
+  background-color: var(--dorado);
+}
+
+/* Input focus styles */
+.astra-input {
+  border: 1px solid var(--borde);
+  background: var(--blanco);
+  padding: 14px 16px;
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--texto);
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+.astra-input:focus {
+  border-color: var(--dorado);
+}
+.astra-input::placeholder {
+  color: var(--dim);
+}
+
+/* Nav backdrop */
+.nav-glass {
+  background: rgba(253, 252, 250, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Gallery hover effect */
+.gallery-item {
+  overflow: hidden;
+}
+.gallery-item img,
+.gallery-item .gallery-placeholder {
+  transition: transform 0.5s ease;
+}
+.gallery-item:hover img,
+.gallery-item:hover .gallery-placeholder {
+  transform: scale(1.03);
+}
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(201, 151, 74, 0);
+  transition: background 0.5s ease;
+  pointer-events: none;
+}
+.gallery-item:hover::after {
+  background: rgba(201, 151, 74, 0.12);
+}
+
+/* Service card hover border */
+.service-card {
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+.service-card:hover {
+  border-bottom-color: var(--dorado);
+}
+
+/* Mobile nav overlay */
+.mobile-nav-enter {
+  animation: slideDown 0.25s ease-out forwards;
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* WhatsApp tooltip */
+.whatsapp-tooltip {
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+.whatsapp-btn:hover .whatsapp-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Warm shadows */
+.warm-shadow {
+  box-shadow: 0 4px 24px rgba(44, 36, 22, 0.10);
+}
+.warm-shadow-lg {
+  box-shadow: 0 8px 40px rgba(44, 36, 22, 0.14);
+}

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(css|js|jsx\\)$\")",
+      "Bash(yarn install *)",
+      "Bash(npm install *)",
+      "Bash(timeout 15 npm run dev)",
+      "Bash(timeout 12 npm run dev)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git add *)"
+    ]
+  }
+}
