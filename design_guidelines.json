@@ -1,0 +1,220 @@
+{
+  "project_name": "Astra Clínica de Terapia Física y Espiritual",
+  "domain": "Health, Wellness, Therapy, Spiritual Clinic",
+  "theme": "LIGHT",
+  "archetype": "1 (Organic & Earthy)",
+  "aesthetic": "Editorial wellness luxury, refined healing space",
+  "typography": {
+    "fonts": [
+      {
+        "name": "Cormorant Garamond",
+        "url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap",
+        "usage": "Headlines, Hero Text, Quotes, Stylized Numbers",
+        "tailwind_class": "font-serif"
+      },
+      {
+        "name": "Jost",
+        "url": "https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap",
+        "usage": "Body text, Labels, Buttons, Navigation",
+        "tailwind_class": "font-sans"
+      }
+    ],
+    "hierarchy": {
+      "h1": "text-5xl md:text-6xl lg:text-7xl font-serif tracking-tight leading-none text-texto",
+      "h2": "text-4xl md:text-5xl font-serif tracking-tight leading-tight text-texto",
+      "h3": "text-2xl md:text-3xl font-serif leading-snug text-texto",
+      "body": "text-base md:text-lg font-sans text-medio leading-relaxed",
+      "caption": "text-sm uppercase tracking-[0.2em] font-sans text-dim",
+      "roman_numerals": "text-4xl md:text-6xl font-serif text-dorado3"
+    }
+  },
+  "colors": {
+    "brand": {
+      "dorado": "#C9974A",
+      "dorado2": "#E8B96A",
+      "dorado3": "#F5D9A0",
+      "arena": "#F5F0E8",
+      "arena2": "#EDE5D8",
+      "arena3": "#E2D8C8",
+      "blanco": "#FDFCFA",
+      "texto": "#2C2416",
+      "medio": "#6B5A42",
+      "dim": "#9E8E78",
+      "oscuro": "#1C1710"
+    },
+    "tailwind_config_extension": {
+      "colors": {
+        "dorado": "#C9974A",
+        "dorado2": "#E8B96A",
+        "dorado3": "#F5D9A0",
+        "arena": "#F5F0E8",
+        "arena2": "#EDE5D8",
+        "arena3": "#E2D8C8",
+        "blanco": "#FDFCFA",
+        "texto": "#2C2416",
+        "medio": "#6B5A42",
+        "dim": "#9E8E78",
+        "oscuro": "#1C1710"
+      }
+    }
+  },
+  "layout_spacing": {
+    "section_padding": "py-24 md:py-32 px-6 md:px-12",
+    "container": "max-w-7xl mx-auto",
+    "grid_bento": "grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12",
+    "card_padding": "p-8 md:p-12",
+    "rounded": "rounded-none md:rounded-sm",
+    "nav_height": "h-24"
+  },
+  "components_strategy": {
+    "buttons": {
+      "primary": "bg-dorado hover:bg-dorado2 text-blanco px-8 py-4 font-sans tracking-widest uppercase text-sm transition-colors duration-300",
+      "secondary": "border border-dorado text-dorado hover:bg-arena px-8 py-4 font-sans tracking-widest uppercase text-sm transition-colors duration-300",
+      "whatsapp_floating": "fixed bottom-8 right-8 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg z-50 transition-transform hover:scale-105"
+    },
+    "navigation": {
+      "sticky": true,
+      "style": "fixed top-0 w-full z-40 bg-blanco/80 backdrop-blur-xl border-b border-arena3/50 transition-all duration-300",
+      "links": "font-sans text-sm tracking-widest uppercase text-medio hover:text-dorado transition-colors"
+    },
+    "cards": {
+      "service": "bg-arena2 border border-arena3 group cursor-pointer hover:bg-arena transition-colors duration-500 flex flex-col justify-between h-full p-8 relative overflow-hidden",
+      "testimonial": "bg-oscuro border border-medio/30 p-8 min-w-[300px] md:min-w-[400px] snap-center shrink-0"
+    },
+    "heroes": {
+      "home_crossfade": "Relative h-screen w-full overflow-hidden flex items-center justify-center. Needs an absolute overlay of bg-oscuro/40 to ensure h1 is readable. Use Framer Motion or React state + CSS opacity transition for background image crossfading.",
+      "page_header": "pt-40 pb-20 bg-arena text-center"
+    }
+  },
+  "motion_and_interactions": {
+    "hover_states": "Subtle color shifts, slight transforms on image hover (scale 1.05 inside overflow-hidden wrapper)",
+    "page_transitions": "Fade in on route change using Framer Motion (opacity 0 to 1, y: 10 to 0, duration 0.6)",
+    "scroll_reveal": "Elements should gently fade and drift up on scroll using Intersection Observer or Framer Motion 'whileInView'",
+    "route_handling": "MUST implement <ScrollToTop /> component in React Router to ensure pages start at top on navigation."
+  },
+  "pages_and_routes": [
+    {
+      "path": "/",
+      "name": "Home",
+      "sections": [
+        "Immersive Hero Gallery (Crossfade background)",
+        "Philosophy/Essence Section (Text-heavy editorial)",
+        "Services Preview (Numbered grid, linking to /servicios)",
+        "Gallery Preview (Masonry-like layout)",
+        "Testimonials (Dark section bg-oscuro, horizontal scroll)",
+        "Final CTA"
+      ]
+    },
+    {
+      "path": "/servicios",
+      "name": "Servicios",
+      "sections": [
+        "Page Header (Title + sub)",
+        "9 Services Grid (Real prices and descriptions)",
+        "How it Works (3-step process)"
+      ]
+    },
+    {
+      "path": "/reservaciones",
+      "name": "Reservaciones",
+      "sections": [
+        "Page Header",
+        "Form (Name, Service, Date, redirect to WhatsApp onClick with pre-filled message via wa.me link)"
+      ]
+    },
+    {
+      "path": "/nosotros",
+      "name": "Nosotros",
+      "sections": [
+        "Story/Mission",
+        "Team Grid",
+        "Values (Editorial layout using Roman Numerals i.e. I, II, III using text-dorado3)"
+      ]
+    }
+  ],
+  "content_data": {
+    "services": [
+      {
+        "id": "1",
+        "name": "Consulta de valoración en terapia física",
+        "price": "$600",
+        "image_key": "massage_1"
+      },
+      {
+        "id": "2",
+        "name": "Sesión integral de terapia física",
+        "price": "$900",
+        "image_key": "massage_2"
+      },
+      {
+        "id": "3",
+        "name": "Sesión simple con medios físicos",
+        "price": "$500",
+        "image_key": "massage_3"
+      },
+      {
+        "id": "4",
+        "name": "Masaje relajante espalda, hombros y cuello",
+        "price": "$900",
+        "image_key": "massage_4"
+      },
+      {
+        "id": "5",
+        "name": "Masaje relajante completo",
+        "price": "$1,300",
+        "image_key": "massage_5"
+      },
+      {
+        "id": "6",
+        "name": "Crioterapia / tina con hielos",
+        "price": "$300",
+        "image_key": "ice_bath_1"
+      },
+      {
+        "id": "7",
+        "name": "Experiencia completa de hielo, respiración y yoga",
+        "price": "$600",
+        "image_key": "ice_bath_2"
+      },
+      {
+        "id": "8",
+        "name": "Yoga",
+        "price": "$300",
+        "image_key": "yoga_1"
+      }
+    ]
+  },
+  "media": {
+    "image_urls": {
+      "hero_bg_1": "https://images.unsplash.com/photo-1767350510090-137a6ce252c0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB3ZWxsbmVzcyUyMHNwYSUyMG1hc3NhZ2V8ZW58MHx8fHwxNzc2MzAyNTM1fDA&ixlib=rb-4.1.0&q=85",
+      "hero_bg_2": "https://images.unsplash.com/photo-1753605788101-04d1e653e74a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjB3ZWxsbmVzcyUyMGFlc3RoZXRpYyUyMGludGVyaW9yfGVufDB8fHx8MTc3NjMwMjU0MXww&ixlib=rb-4.1.0&q=85",
+      "hero_bg_3": "https://images.unsplash.com/photo-1772616748527-e0f739d09e7d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB3ZWxsbmVzcyUyMGFlc3RoZXRpYyUyMGludGVyaW9yfGVufDB8fHx8MTc3NjMwMjU0MXww&ixlib=rb-4.1.0&q=85",
+      "yoga_1": "https://images.unsplash.com/photo-1641391400871-3a6578a11d5a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwyfHx5b2dhJTIwbWVkaXRhdGlvbiUyMHNlcmVuZXxlbnwwfHx8fDE3NzYzMDI1MzZ8MA&ixlib=rb-4.1.0&q=85",
+      "ice_bath_1": "https://images.unsplash.com/photo-1701895853566-bd08afa0c422?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2MzR8MHwxfHNlYXJjaHwyfHxpY2UlMjBiYXRoJTIwdGhlcmFweXxlbnwwfHx8fDE3NzYzMDI1MzV8MA&ixlib=rb-4.1.0&q=85",
+      "ice_bath_2": "https://images.unsplash.com/photo-1681980016814-0bac16721969?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2MzR8MHwxfHNlYXJjaHwxfHxpY2UlMjBiYXRoJTIwdGhlcmFweXxlbnwwfHx8fDE3NzYzMDI1MzV8MA&ixlib=rb-4.1.0&q=85",
+      "massage_1": "https://images.unsplash.com/photo-1630595632518-8217c0bceb8f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjB3ZWxsbmVzcyUyMHNwYSUyMG1hc3NhZ2V8ZW58MHx8fHwxNzc2MzAyNTM1fDA&ixlib=rb-4.1.0&q=85",
+      "massage_2": "https://images.unsplash.com/photo-1611920629515-3f76f8c36b37?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjB3ZWxsbmVzcyUyMHNwYSUyMG1hc3NhZ2V8ZW58MHx8fHwxNzc2MzAyNTM1fDA&ixlib=rb-4.1.0&q=85",
+      "massage_3": "https://images.unsplash.com/photo-1753605788101-04d1e653e74a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjB3ZWxsbmVzcyUyMGFlc3RoZXRpYyUyMGludGVyaW9yfGVufDB8fHx8MTc3NjMwMjU0MXww&ixlib=rb-4.1.0&q=85",
+      "massage_4": "https://images.unsplash.com/photo-1772616748527-e0f739d09e7d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB3ZWxsbmVzcyUyMGFlc3RoZXRpYyUyMGludGVyaW9yfGVufDB8fHx8MTc3NjMwMjU0MXww&ixlib=rb-4.1.0&q=85",
+      "massage_5": "https://images.unsplash.com/photo-1770625468009-71c90199d5e0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjB3ZWxsbmVzcyUyMGFlc3RoZXRpYyUyMGludGVyaW9yfGVufDB8fHx8MTc3NjMwMjU0MXww&ixlib=rb-4.1.0&q=85",
+      "team_placeholder": "https://images.unsplash.com/photo-1618425977996-bebc5afe88f9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwxfHx5b2dhJTIwbWVkaXRhdGlvbiUyMHNlcmVuZXxlbnwwfHx8fDE3NzYzMDI1MzZ8MA&ixlib=rb-4.1.0&q=85",
+      "texture_bg": "https://images.unsplash.com/photo-1595697373395-bfadbbab245e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwyfHxiZWlnZSUyMGFic3RyYWN0JTIwdGV4dHVyZXxlbnwwfHx8fDE3NzYzMDI1NDB8MA&ixlib=rb-4.1.0&q=85"
+    }
+  },
+  "testing_requirements": {
+    "attributes": "All interactive elements, forms, and major links MUST use 'data-testid' for robust testing (e.g., data-testid='nav-services-link', data-testid='whatsapp-fab', data-testid='reserve-submit-btn')."
+  },
+  "instructions_to_main_agent": [
+    "Strictly follow the JSON data. Do not invent your own colors or typography.",
+    "Initialize React Router v6 with 4 routes (Home, Servicios, Reservaciones, Nosotros).",
+    "Ensure <ScrollToTop /> runs on every route change.",
+    "Implement the theme colors directly into tailwind.config.js.",
+    "Implement the two fonts (Cormorant Garamond, Jost) in the global CSS and tailwind config.",
+    "Build the hero slider in Home using Framer Motion with the provided 'hero_bg' images.",
+    "Ensure the layout feels 'empty' and breathable. Use generous padding like py-24, py-32. Tension is created by empty space.",
+    "For the 'Reservaciones' form, write an onSubmit handler that prevents default and calls window.open('https://wa.me/1234567890?text=Hola...', '_blank').",
+    "Remember to build for React JS (not TSX), ensuring file extensions are .jsx or .js as needed in your environment.",
+    "Include 'data-testid' tags on all CTA buttons, navigation items, and form elements.",
+    "Do NOT use generic stock images outside of the provided media object."
+  ]
+}

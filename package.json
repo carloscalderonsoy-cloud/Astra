@@ -1,0 +1,13 @@
+{
+  "name": "astra",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && python server.py"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
