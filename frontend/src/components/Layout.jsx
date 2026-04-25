@@ -1,9 +1,28 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, Outlet } from 'react-router-dom';
-import { Menu, X, Instagram, Facebook, Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Menu, X, Phone, Mail, MapPin, Clock } from 'lucide-react';
 
 const WA_NUMBER = '523411159610';
 const WA_MSG = encodeURIComponent('Hola Astra, quiero reservar una sesión');
+
+/* ── Social icons (inline SVG — brand icons deprecated in lucide) ── */
+function IconInstagram({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <circle cx="12" cy="12" r="4.5" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function IconFacebook({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  );
+}
 
 /* ── ScrollToTop ── */
 function ScrollToTop() {
@@ -20,7 +39,7 @@ function WhatsAppButton() {
       href={`https://wa.me/${WA_NUMBER}?text=${WA_MSG}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="whatsapp-btn fixed bottom-5 right-4 z-50 w-14 h-14 md:w-14 md:h-14
+      className="whatsapp-btn fixed bottom-5 right-4 z-50 w-14 h-14
                  rounded-full bg-[#25D366] flex items-center justify-center
                  shadow-lg hover:scale-110 transition-transform duration-200"
       aria-label="Contactar por WhatsApp"
@@ -60,69 +79,67 @@ function Nav() {
     <>
       <nav
         data-testid="main-nav"
-        className={`fixed top-0 w-full z-40 transition-all duration-300
-          ${scrolled ? 'nav-glass shadow-sm' : 'bg-blanco'}
-          border-b border-arena3/40`}
+        className={`fixed top-0 w-full z-40 transition-all duration-500
+          ${scrolled ? 'nav-glass shadow-[0_1px_0_0_rgba(226,216,200,0.6)]' : 'bg-transparent'}
+          border-b border-arena3/30`}
       >
         <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" data-testid="nav-logo" className="flex items-center gap-2">
+          <Link to="/" data-testid="nav-logo" className="flex items-center">
             <img
-              src="/logo.jpeg"
+              src="/logo.png"
               alt="Astra Logo"
-              className="h-[72px] w-auto"
-              style={{ mixBlendMode: 'multiply' }}
+              className="h-14 w-auto object-contain"
             />
           </Link>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-10">
-          {links.map(l => (
-            <Link
-              key={l.to}
-              to={l.to}
-              data-testid={`nav-${l.label.toLowerCase()}-link`}
-              className={`font-sans text-[13px] tracking-[0.18em] uppercase transition-colors duration-200
-                ${location.pathname === l.to ? 'text-dorado' : 'text-medio hover:text-dorado'}`}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </div>
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-10">
+            {links.map(l => (
+              <Link
+                key={l.to}
+                to={l.to}
+                data-testid={`nav-${l.label.toLowerCase()}-link`}
+                className={`font-sans text-[11px] tracking-[0.22em] uppercase transition-colors duration-200
+                  ${location.pathname === l.to ? 'text-dorado' : 'text-medio hover:text-dorado'}`}
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
 
-        {/* Desktop CTA */}
-        <Link
-          to="/reservaciones"
-          data-testid="nav-cta-agendar"
-          className="hidden md:inline-block bg-dorado hover:bg-dorado2 text-blanco
-                     font-sans text-[12px] tracking-[0.2em] uppercase px-6 py-2.5
-                     transition-colors duration-300"
-        >
-          Agendar cita
-        </Link>
+          {/* Desktop CTA */}
+          <Link
+            to="/reservaciones"
+            data-testid="nav-cta-agendar"
+            className="hidden md:inline-flex items-center gap-2 border border-texto/15 hover:bg-oscuro hover:border-oscuro text-texto hover:text-blanco
+                       font-sans text-[11px] tracking-[0.22em] uppercase px-5 py-2.5
+                       transition-colors duration-300"
+          >
+            Agendar cita
+          </Link>
 
-        {/* Mobile hamburger */}
-        <button
-          data-testid="nav-mobile-toggle"
-          onClick={() => setOpen(!open)}
-          className="md:hidden w-11 h-11 flex items-center justify-center text-texto"
-          aria-label="Menú"
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+          {/* Mobile hamburger */}
+          <button
+            data-testid="nav-mobile-toggle"
+            onClick={() => setOpen(!open)}
+            className="md:hidden w-11 h-11 flex items-center justify-center text-texto"
+            aria-label="Menú"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
       </nav>
 
-      {/* Mobile overlay — rendered OUTSIDE nav to avoid stacking context issues */}
+      {/* Mobile overlay */}
       {open && (
-        <div className="md:hidden fixed inset-0 z-[9999] bg-white flex flex-col">
+        <div className="md:hidden fixed inset-0 z-[9999] bg-blanco flex flex-col">
           <div className="flex items-center justify-between px-5 h-20 border-b border-arena3/40 shrink-0">
             <Link to="/" data-testid="nav-mobile-logo" onClick={() => setOpen(false)}>
               <img
-                src="/logo.jpeg"
+                src="/logo.png"
                 alt="Astra Logo"
-                className="h-[48px] w-auto"
-                style={{ mixBlendMode: 'multiply' }}
+                className="h-12 w-auto object-contain"
               />
             </Link>
             <button
@@ -171,8 +188,13 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Col 1 — Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <span className="font-serif text-dorado text-2xl tracking-[0.12em] font-semibold">ASTRA</span>
+            <Link to="/" className="inline-block mb-5">
+              <img
+                src="/logo.png"
+                alt="Astra Logo"
+                className="h-20 w-auto object-contain"
+                style={{ filter: 'brightness(0) saturate(100%) invert(67%) sepia(43%) saturate(500%) hue-rotate(2deg) brightness(97%) contrast(92%)' }}
+              />
             </Link>
             <p className="font-sans text-dim text-sm font-light leading-relaxed mb-6 max-w-xs">
               Clínica de terapia física y espiritual. Un espacio de sanación íntimo, refinado y consciente.
@@ -181,12 +203,12 @@ function Footer() {
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
                  data-testid="footer-instagram"
                  className="text-dim hover:text-dorado transition-colors" aria-label="Instagram">
-                <Instagram size={18} />
+                <IconInstagram size={18} />
               </a>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
                  data-testid="footer-facebook"
                  className="text-dim hover:text-dorado transition-colors" aria-label="Facebook">
-                <Facebook size={18} />
+                <IconFacebook size={18} />
               </a>
               <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noopener noreferrer"
                  data-testid="footer-whatsapp"
@@ -235,7 +257,7 @@ function Footer() {
               </span>
               <span className="flex items-center gap-2">
                 <Clock size={15} className="shrink-0" />
-                Lada 341 · Jalisco
+                Lun–Vie 9:00–19:00 · Sáb 9:00–14:00
               </span>
             </div>
           </div>

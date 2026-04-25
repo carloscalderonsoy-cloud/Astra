@@ -58,6 +58,17 @@ chainlit.md
 .ipynb_checkpoints/
 .ac
 
+# Claude Code
+.claude/
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Frontend build
+frontend/dist/
+
 # Deployment
 .vercel
 
